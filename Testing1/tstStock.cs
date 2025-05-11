@@ -198,6 +198,127 @@ namespace Testing1
             anArtist.ArtistID = testdata;
             Assert.AreEqual(anArtist.ArtistID, testdata);
         }
-
+        //------------------------Testing methods--------------------------//
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            Assert.IsTrue(found);
+        }
+        [TestMethod]
+        public void testAlbumIDisFoundOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            if (anAlbum.AlbumID != 5)
+            {
+                OK = false; 
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void testAlbumGenreIsFoundOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            if (anAlbum.AlbumGenre != "Rap")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void testAlbumTitleIsFoundOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            if (anAlbum.AlbumTitle != "Ce monde est cruel")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void testAlbumDescriptionIsFoundOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            if (anAlbum.AlbumDescription != "Troisième album studio de Vald, Ce monde est cruel sort le 11 octobre 2019. Il est certifié disque d'or en France par le SNEP neuf jours après sa sortie, puis disque de platine avec plus de 100 000 ventes début février 2020.")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void testAlbumArtistIDIsFoundOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            if (anAlbum.AlbumArtistID != 3)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void testAlbumReleaseDateIsFoundOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            if (anAlbum.AlbumDate != Convert.ToDateTime("11/10/2019 00:00:00"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void testAlbumPriceIsFoundOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            if (anAlbum.AlbumPrice != Convert.ToDecimal(15))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void testAlbumEditionIsFoundOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 AlbumID = 5;
+            found = anAlbum.Find(AlbumID);
+            if (anAlbum.AlbumEdition != "Standard")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
