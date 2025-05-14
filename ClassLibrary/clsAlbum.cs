@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.Eventing.Reader;
 
 namespace ClassLibrary
 {
@@ -107,15 +108,30 @@ namespace ClassLibrary
 
         public bool Find(int albumID)
         {
-            mAlbumID = 5;
-            mAlbumGenre = "Rap";
-            mAlbumTitle = "Ce monde est cruel";
-            mAlbumDescription = "Troisième album studio de Vald, Ce monde est cruel sort le 11 octobre 2019. Il est certifié disque d'or en France par le SNEP neuf jours après sa sortie, puis disque de platine avec plus de 100 000 ventes début février 2020.";
-            mAlbumArtistID = 3;
-            mAlbumDate = Convert.ToDateTime("11/10/2019 00:00:00");
-            mAlbumPrice = 15;
-            mAlbumEdition = "Standard";
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@AlbumID", AlbumID);
+
+            DB.Execute("sproc_tblAlbum_FilterByAlbumID");
+            if (DB.Count==1)
+            {
+                mAlbumID = Convert.ToInt32(DB.DataTable.Rows[0]["AlbumID"]);
+                mAlbumGenre = Convert.ToString(DB.DataTable.Rows[0]["Genre"]);
+                mAlbumTitle = Convert.ToString(DB.DataTable.Rows[0]["Title"]);
+                mAlbumDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
+                mAlbumArtistID = Convert.ToInt32(DB.DataTable.Rows[0]["ArtistID"]);
+                mAlbumDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Release Date"]);
+                mAlbumPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+                mAlbumEdition = Convert.ToString(DB.DataTable.Rows[0]["Edition"]);
+                return true;
+            }
+
+            
+            else 
+            {
+                Console.WriteLine("Chaîne de connexion utilisée : " + DB.ConnectionString);
+
+                return false;
+             }
         }
     }
 }
