@@ -13,6 +13,8 @@ using System.Data;
 
 public class clsDataConnection
 {
+    public string ConnectionString => connectionString;
+
     //connection object used to connect to the database
     SqlConnection connectionToDB = new SqlConnection();
     //data adapter used to transfer data to and from the database
@@ -29,7 +31,11 @@ public class clsDataConnection
     public clsDataConnection()
     {
         connectionString = GetConnectionString();
+        connectionToDB.ConnectionString = connectionString; // ← très important
     }
+    
+
+
 
     private string GetConnectionString()
     {
