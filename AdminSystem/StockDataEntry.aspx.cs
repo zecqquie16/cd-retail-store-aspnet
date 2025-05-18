@@ -17,22 +17,48 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         clsAlbum anAlbum = new clsAlbum();
       
-        anAlbum.AlbumTitle = txtAlbumTitle.Text;
+        string AlbumTitle = txtAlbumTitle.Text;
         
-        anAlbum.AlbumID = Convert.ToInt32(txtAlbumID.Text);
+        string AlbumID = (txtAlbumID.Text);
 
-        anAlbum.AlbumArtistID = Convert.ToInt32(txtAlbumArtistID.Text);
+        string AlbumArtistID = (txtAlbumArtistID.Text);
         
-        anAlbum.AlbumGenre = txtAlbumGenre.Text;
+        string AlbumGenre = txtAlbumGenre.Text;
         
-        anAlbum.AlbumDescription = txtAlbumDescription.Text;
+        string AlbumDescription = txtAlbumDescription.Text;
         
-        anAlbum.AlbumDate = Convert.ToDateTime(txtAlbumReleaseDate.Text);
+        string AlbumDate =(txtAlbumReleaseDate.Text);
         
-        anAlbum.AlbumPrice = Convert.ToDecimal( txtAlbumPrice.Text);
-      
-        anAlbum.AlbumEdition = (txtAlbumEdition.Text);
-        Session["anAlbum"] = anAlbum;
-        Response.Redirect("StockViewer.aspx");
+        string AlbumPrice =( txtAlbumPrice.Text);
+
+        string AlbumEdition = ( txtAlbumEdition.Text);
+
+        string Error = "";
+
+        Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+        if (Error == "") 
+        {
+            anAlbum.AlbumTitle = AlbumTitle;
+            anAlbum.AlbumGenre = AlbumGenre;
+            anAlbum.AlbumDescription = AlbumDescription;
+            anAlbum.AlbumEdition = AlbumEdition;
+            anAlbum.AlbumDate = Convert.ToDateTime(AlbumDate);
+            anAlbum.AlbumPrice = Convert.ToDecimal(AlbumPrice);
+            anAlbum.AlbumArtistID = Convert.ToInt32(AlbumArtistID);
+            anAlbum.AlbumID = Convert.ToInt32(AlbumID);
+            Session["anAlbum"] = anAlbum;
+            Response.Redirect("StockViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+
+
+    }
+
+    protected void txtAlbumEdition_TextChanged(object sender, EventArgs e)
+    {
+
     }
 }

@@ -19,7 +19,7 @@
             <asp:Label ID="lblAlbumID" runat="server" style="z-index: 1; left: 60px; top: 115px; position: absolute; width: 134px; right: 1284px" Text="AlbumID"></asp:Label>
             <asp:Label ID="lblAlbumArtistID" runat="server" style="z-index: 1; left: 60px; top: 276px; position: absolute; width: 134px; " Text="ArtistID" height="22px"></asp:Label>
             <asp:Label ID="lblAlbumTitle" runat="server" style="z-index: 1; left: 60px; top: 169px; position: absolute; width: 134px; " Text="Title" height="22px"></asp:Label>
-            <asp:TextBox ID="txtAlbumEdition" runat="server" style="z-index: 1; left: 220px; top: 485px; position: absolute; height: 25px; margin-bottom: 0px" width="168px"></asp:TextBox>
+            <asp:TextBox ID="txtAlbumEdition" runat="server" style="z-index: 1; left: 220px; top: 485px; position: absolute; height: 25px; margin-bottom: 0px" width="168px" OnTextChanged="txtAlbumEdition_TextChanged"></asp:TextBox>
             
             <asp:TextBox ID="txtAlbumReleaseDate" runat="server" style="z-index: 1; left: 220px; top: 435px; position: absolute; height: 25px; margin-bottom: 0px" width="168px"></asp:TextBox>
             <asp:TextBox ID="txtAlbumID" runat="server" style="z-index: 1; left: 224px; top: 113px; position: absolute; height: 25px; margin-bottom: 0px"></asp:TextBox>
@@ -35,13 +35,13 @@
             <asp:Label ID="lblAlbumEdition" runat="server" style="z-index: 1; left: 60px; top: 494px; position: absolute; width: 134px; " Text="Edition" height="22px"></asp:Label>
          
             
-                <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 159px; top: 573px; position: absolute; margin-bottom: 0px" Text="OK" OnClick="btnOK_Click" />
+                <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 540px; top: 235px; position: absolute; margin-bottom: 0px" Text="OK" OnClick="btnOK_Click" />
           
 
                
           
 
-                <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 245px; top: 574px; position: absolute; height: 29px;" Text="Cancel" />
+                <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 611px; top: 237px; position: absolute; height: 29px;" Text="Cancel" />
           
           
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 46px; top: 572px; position: absolute; height: 29px;"></asp:Label>
