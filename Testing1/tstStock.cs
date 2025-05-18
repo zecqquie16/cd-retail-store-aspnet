@@ -6,7 +6,24 @@ namespace Testing1
 {
     [TestClass]
     public class tstStock
-    {//------------------------------------Test for Album table------------------------------------------------------------------//
+    {   //Good test data//
+
+        string AlbumTitle = "Xeu";
+        string AlbumGenre = "Rap";
+        string AlbumDescription = "Deuxième album studio du V";
+        string AlbumEdition = "Standard";
+        string AlbumDate = DateTime.Now.ToShortDateString();
+        string AlbumPrice = Convert.ToString(15.00000);
+        string AlbumArtistID = Convert.ToString(5);
+
+        
+        
+        
+        
+        
+        
+        
+        //------------------------------------Test for Album table------------------------------------------------------------------//
         [TestMethod]
         public void InstanceOK()
         {
@@ -320,5 +337,484 @@ namespace Testing1
             }
             Assert.IsTrue(OK);
         }
+        //------------------------------------------------Validation Tests----------------------------------------//
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumTitleMinLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumTitle = "";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumTitleMin()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumTitle = "V";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumTitleMinPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumTitle = "VV";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        //50 characters length :'llllllllllllllllllllllllllllllllllllllllllllllllll'
+        [TestMethod]
+        public void AlbumTitleMax()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumTitle = "llllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumTitleMid()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumTitle = "lllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumTitleMaxLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumTitle = "lllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumTitleMaxPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumTitle = "lllllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumTitleMaxExtreme()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumTitle = "";
+            AlbumTitle = AlbumTitle.PadRight(1000,'l');
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMinLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "DJ";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMin()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "Pop";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMinExtreme()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMinPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "VVVV";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMaxLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "lllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMax()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "llllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMaxPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "lllllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMid()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "lllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumGenreMaxExtreme()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumGenre = "";
+            AlbumGenre = AlbumGenre.PadRight(1000, 'l');
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumEditionMaxLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumEdition = "lllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumEditionMax()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumEdition = "llllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumEditionMaxPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumEdition = "lllllllllllllllllllllllllllllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumEditionMid()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumEdition = "lllllllllllllllllllllllll";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumEditionMaxExtreme()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumEdition = "";
+            AlbumGenre = AlbumEdition.PadRight(1000, 'l');
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumPriceMinLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            decimal testPrice = 0;
+            AlbumPrice = testPrice.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumPriceMin()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            decimal testPrice = 1;
+            AlbumPrice = testPrice.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumPriceMinPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            decimal testPrice = 2;
+            AlbumPrice = testPrice.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        //50 characters length :'llllllllllllllllllllllllllllllllllllllllllllllllll'
+        [TestMethod]
+        public void AlbumPriceMax()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = ""; 
+            decimal testPrice = 2500;
+            AlbumPrice = testPrice.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumPriceMid()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            decimal testPrice = 1250;
+            AlbumPrice = testPrice.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumPriceMaxLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            decimal testPrice = 2499;
+            AlbumPrice = testPrice.ToString(); ;
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumPriceMaxPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            decimal testPrice = 2501;
+            AlbumPrice = testPrice.ToString(); 
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumPriceMaxExtreme()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            decimal testPrice = 100000000;
+            AlbumPrice = testPrice.ToString(); ;
+           
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumArtistIDMinLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            int testArtistID = 0;
+            AlbumArtistID = testArtistID.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumArtistIDMin()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            int testArtistID = 1;
+            AlbumArtistID = testArtistID.ToString();
+            
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumArtistIDMinPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            int testArtistID = 2;
+            AlbumArtistID = testArtistID.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        //50 characters length :'llllllllllllllllllllllllllllllllllllllllllllllllll'
+        [TestMethod]
+        public void AlbumArtistIDMax()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            int testArtistID = 1000;
+            AlbumArtistID = testArtistID.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumArtistIDMid()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            int testArtistID = 500;
+            AlbumArtistID = testArtistID.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumArtistIDMaxLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            int testArtistID = 999;
+            AlbumArtistID = testArtistID.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumArtistIDMaxPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            int testArtistID = 1001;
+            AlbumArtistID = testArtistID.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumArtistIDMaxExtreme()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            int testArtistID = 100000000;
+            AlbumArtistID = testArtistID.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumDateMinExtreme()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumDate;
+             DateTime TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-1000);
+            AlbumDate = TestDate.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AlbumDateMinLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumDate;
+
+            AlbumDate = "31/12/1981 00:00:00";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AlbumDateMin()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumDate;
+
+            AlbumDate = "01/01/1982 00:00:00";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+
+        }
+        [TestMethod]
+        public void AlbumDateMinPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumDate = "02/01/1982 00:00:00";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        //50 characters length :'llllllllllllllllllllllllllllllllllllllllllllllllll'
+        [TestMethod]
+        public void AlbumDateMax()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            DateTime testDate;
+            testDate = DateTime.Now;
+            string AlbumDate = testDate.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumDateMid()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumDate = "01/01/2002 00:00:00";
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumDateMaxLessOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            DateTime testDate;
+            testDate = DateTime.Now;
+            testDate = testDate.AddDays(-1);
+            string AlbumDate = testDate.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumDateMaxPlusOne()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            DateTime testDate;
+            testDate = DateTime.Now;
+            testDate = testDate.AddDays(1);
+            string AlbumDate = testDate.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
+        [TestMethod]
+        public void AlbumDateMaxExtreme()
+        {
+            clsAlbum anAlbum = new clsAlbum();
+            String Error = "";
+            String AlbumDate;
+            DateTime TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(1000);
+            AlbumDate = TestDate.ToString();
+            Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
+            Assert.AreNotEqual(Error, "");
+        }
     }
+
 }
