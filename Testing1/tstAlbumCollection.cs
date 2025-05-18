@@ -1,0 +1,73 @@
+﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+
+namespace Testing1
+{
+    [TestClass]
+    public class tstAlbumCollection
+    {
+        [TestMethod]
+        public void InstanceOK()
+        {
+            clsAlbumCollection allAlbums = new clsAlbumCollection();
+            Assert.IsNotNull(allAlbums);
+        }
+        [TestMethod]
+        public void AlbumListOK()
+        {
+            clsAlbumCollection allAlbums = new clsAlbumCollection();
+            List<clsAlbum> TestList = new List<clsAlbum>();
+            clsAlbum testItem = new clsAlbum();
+            testItem.AlbumID = 26;
+            testItem.AlbumTitle = "Vréel4";
+            testItem.AlbumGenre = "Rap";
+            testItem.AlbumDescription = "4e Vréel de Kekra";
+            testItem.AlbumDate = Convert.ToDateTime("16/05/2025 00:00:00");
+            testItem.AlbumEdition = " Sale";
+            testItem.AlbumArtistID = 8;
+            testItem.AlbumPrice = 38;
+            TestList .Add(testItem);
+            allAlbums.AlbumList = TestList;
+            Assert.AreEqual(allAlbums.AlbumList, TestList);
+        }
+       
+        [TestMethod]
+        public void ThisAlbumOK()
+        {
+            clsAlbumCollection allAlbums = new clsAlbumCollection();
+            
+            clsAlbum testAlbum = new clsAlbum();
+            testAlbum.AlbumID = 26;
+            testAlbum.AlbumTitle = "Vréel4";
+            testAlbum.AlbumGenre = "Rap";
+            testAlbum.AlbumDescription = "4e Vréel de Kekra";
+            testAlbum.AlbumDate = Convert.ToDateTime("16/05/2025 00:00:00");
+            testAlbum.AlbumEdition = " Sale";
+            testAlbum.AlbumArtistID = 8;
+            testAlbum.AlbumPrice = 38;
+            
+            allAlbums.ThisAlbum = testAlbum;
+            Assert.AreEqual(allAlbums.ThisAlbum, testAlbum);
+        }
+        [TestMethod]
+        public void ListAndCountOK()
+        {
+            clsAlbumCollection allAlbums = new clsAlbumCollection();
+            List<clsAlbum> TestList = new List<clsAlbum>();
+            clsAlbum testAlbum = new clsAlbum();
+            testAlbum.AlbumID = 26;
+            testAlbum.AlbumTitle = "Vréel4";
+            testAlbum.AlbumGenre = "Rap";
+            testAlbum.AlbumDescription = "4e Vréel de Kekra";
+            testAlbum.AlbumDate = Convert.ToDateTime("16/05/2025 00:00:00");
+            testAlbum.AlbumEdition = " Sale";
+            testAlbum.AlbumArtistID = 8;
+            testAlbum.AlbumPrice = 38;
+            TestList.Add(testAlbum);
+            allAlbums.AlbumList= TestList;
+            Assert.AreEqual(allAlbums.Count, TestList.Count);
+        }
+    }
+}
