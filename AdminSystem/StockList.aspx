@@ -14,7 +14,9 @@
 <body style="height: 631px">
     <form id="form1" runat="server">
         
-        <asp:ListBox ID="lstAlbumList" runat="server" style="z-index: 1; left: 319px; top: 43px; position: absolute; height: 342px; width: 768px; margin-top: 0px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
+        <asp:ListBox ID="lstAlbumList" runat="server" style="z-index: 1; left: 312px; top: 53px; position: absolute; height: 342px; width: 768px; margin-top: 0px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
+        
+        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 628px; top: 436px; position: absolute; height: 42px; width: 111px" Text="Add" OnClick="btnAdd_Click" />
         
     </form>
 </body>

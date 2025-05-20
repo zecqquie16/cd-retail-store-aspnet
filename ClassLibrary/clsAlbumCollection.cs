@@ -23,13 +23,14 @@ namespace ClassLibrary
                 anAlbum.AlbumDescription= Convert.ToString(DB.DataTable.Rows[Index]["Description"]);
                 anAlbum.AlbumArtistID = Convert.ToInt32(DB.DataTable.Rows[Index]["ArtistID"]);
                 anAlbum.AlbumPrice = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
-                anAlbum.AlbumDate= Convert.ToDateTime(DB.DataTable.Rows[Index]["Release Date"]);
+                anAlbum.AlbumDate= Convert.ToDateTime(DB.DataTable.Rows[Index]["ReleaseDate"]);
                 mAlbumList.Add(anAlbum);
                 Index++;
             }
 
         }
         List<clsAlbum> mAlbumList = new List<clsAlbum>();
+        clsAlbum mThisAlbum = new clsAlbum();
         public List<clsAlbum> AlbumList 
         { get 
             {
@@ -51,6 +52,29 @@ namespace ClassLibrary
                 //
             }
         }
-        public clsAlbum ThisAlbum { get; set; }
+        public clsAlbum ThisAlbum 
+        {
+            get 
+                 { 
+                return mThisAlbum;
+                 }
+            set
+                 {
+                mThisAlbum = value;
+                 }
+        }
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@Title",mThisAlbum.AlbumTitle);
+            DB.AddParameter("@Genre", mThisAlbum.AlbumGenre);
+            DB.AddParameter("@ReleaseDate", mThisAlbum.AlbumDate);
+            DB.AddParameter("@Description", mThisAlbum.AlbumDescription);
+            DB.AddParameter("@Edition", mThisAlbum.AlbumEdition);
+            DB.AddParameter("@ArtistID", mThisAlbum.AlbumArtistID);
+            DB.AddParameter("@Price", mThisAlbum.AlbumPrice);
+            return DB.Execute("sproc_tblAlbum_Insert");
+        }
     }
 }
