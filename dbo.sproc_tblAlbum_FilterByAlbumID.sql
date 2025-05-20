@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE sproc_tblAlbum_FilterByAlbumID
+﻿CREATE PROCEDURE sproc_tblAlbum_FilterByAlbumID_test
     @AlbumID INT
 AS
 BEGIN

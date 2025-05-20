@@ -31,7 +31,7 @@ public class clsDataConnection
     public clsDataConnection()
     {
         connectionString = GetConnectionString();
-        connectionToDB.ConnectionString = connectionString; // ← très important
+        connectionToDB.ConnectionString = connectionString; 
     }
     
 
@@ -162,6 +162,8 @@ public class clsDataConnection
         //open the stored procedure
         //initialise the connection to the database
         connectionToDB = new SqlConnection(connectionString);
+        
+
         //open the database
         connectionToDB.Open();
         //initialise the command builder for this connection
@@ -186,11 +188,14 @@ public class clsDataConnection
         //set the select command property for the data adapter
         dataChannel.SelectCommand = dataCommand;
         //use the copmmand builder to generate the sql insert delete etc
-        commandBuilder = new SqlCommandBuilder(dataChannel);
+        
         //fill the data adapter
         dataChannel.Fill(dataTable);
         //close the connection
         connectionToDB.Close();
+        
+      
+
         //return the result of the stored procedure
         return Convert.ToInt32(returnValue.Value);
     }

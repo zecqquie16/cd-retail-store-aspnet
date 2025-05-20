@@ -222,6 +222,8 @@ namespace Testing1
             clsAlbum anAlbum = new clsAlbum();
             Boolean found = false;
             Int32 AlbumID = 17;
+            System.Diagnostics.Debug.WriteLine("[DEBUG] AlbumID envoyé : " + AlbumID);
+
             found = anAlbum.Find(AlbumID);
             Assert.IsTrue(found);
         }
