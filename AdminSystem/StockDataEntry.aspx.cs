@@ -46,8 +46,10 @@ public partial class _1_DataEntry : System.Web.UI.Page
             anAlbum.AlbumPrice = Convert.ToDecimal(AlbumPrice);
             anAlbum.AlbumArtistID = Convert.ToInt32(AlbumArtistID);
             anAlbum.AlbumID = Convert.ToInt32(AlbumID);
-            Session["anAlbum"] = anAlbum;
-            Response.Redirect("StockViewer.aspx");
+            clsAlbumCollection AlbumList = new clsAlbumCollection();    
+            AlbumList.ThisAlbum = anAlbum;
+            AlbumList.Add();
+            Response.Redirect("StockList.aspx");
         }
         else
         {
@@ -60,5 +62,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void txtAlbumEdition_TextChanged(object sender, EventArgs e)
     {
 
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsAlbum anAlbum = new clsAlbum();
+        Int32 AlbumID;
+        Boolean found = false;
+        AlbumID = Convert.ToInt32(txtAlbumID.Text);
+        found = anAlbum.Find(AlbumID);
+        if (found)
+        {
+            txtAlbumTitle.Text = anAlbum.AlbumTitle;
+            txtAlbumGenre.Text = anAlbum.AlbumGenre;
+            txtAlbumReleaseDate.Text = Convert.ToString(anAlbum.AlbumDate);
+            txtAlbumDescription.Text = anAlbum.AlbumDescription;
+            txtAlbumEdition.Text = anAlbum.AlbumEdition;
+            txtAlbumArtistID.Text = Convert.ToString(anAlbum.AlbumArtistID);   
+            txtAlbumPrice.Text = Convert.ToString((int)anAlbum.AlbumPrice);
+
+        }
     }
 }

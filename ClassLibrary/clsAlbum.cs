@@ -126,7 +126,7 @@ namespace ClassLibrary
                 mAlbumTitle = Convert.ToString(DB.DataTable.Rows[0]["Title"]);
                 mAlbumDescription = Convert.ToString(DB.DataTable.Rows[0]["Description"]);
                 mAlbumArtistID = Convert.ToInt32(DB.DataTable.Rows[0]["ArtistID"]);
-                mAlbumDate = Convert.ToDateTime(DB.DataTable.Rows[0]["Release Date"]);
+                mAlbumDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ReleaseDate"]);
                 mAlbumPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
                 mAlbumEdition = Convert.ToString(DB.DataTable.Rows[0]["Edition"]);
                 return true;

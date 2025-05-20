@@ -68,6 +68,29 @@ namespace Testing1
             TestList.Add(testAlbum);
             allAlbums.AlbumList= TestList;
             Assert.AreEqual(allAlbums.Count, TestList.Count);
+
+        }
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsAlbumCollection allAlbums = new clsAlbumCollection();
+            
+            clsAlbum testAlbum = new clsAlbum();
+            Int32 PrimaryKey = 0;
+            testAlbum.AlbumID = 30;
+            testAlbum.AlbumTitle = "Kekra";
+            testAlbum.AlbumGenre = "Rap";
+            testAlbum.AlbumDescription = "Album de Kekra";
+            testAlbum.AlbumDate = Convert.ToDateTime("15/07/2022 00:00:00");
+            testAlbum.AlbumEdition = " Sous-côté";
+            testAlbum.AlbumArtistID = 8;
+            testAlbum.AlbumPrice = 22;
+            allAlbums.ThisAlbum = testAlbum;
+            PrimaryKey = allAlbums.Add();
+            testAlbum.AlbumID= PrimaryKey;
+            allAlbums.ThisAlbum.Find(PrimaryKey);
+            Assert.AreEqual(allAlbums.ThisAlbum, testAlbum);    
+
         }
     }
 }

@@ -50,6 +50,9 @@
             <asp:TextBox ID="txtAlbumGenre" runat="server" style="z-index: 1; left: 220px; top: 228px; position: absolute; height: 25px; width: 168px"></asp:TextBox>
        
             
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 537px; top: 144px; position: absolute; width: 131px" Text="Find" />
+       
+            
     </form>
     &nbsp;
 </body>
