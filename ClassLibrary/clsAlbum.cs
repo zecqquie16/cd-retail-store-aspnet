@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 
 namespace ClassLibrary
@@ -13,6 +14,8 @@ namespace ClassLibrary
         private DateTime mAlbumDate;
         private decimal mAlbumPrice;
         private string mAlbumEdition;
+        
+
         public string AlbumTitle
         {
             get
@@ -106,12 +109,16 @@ namespace ClassLibrary
 
         }
 
-        public bool Find(int albumID)
+        public bool Find(int AlbumID)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@AlbumID", AlbumID);
+            DB.AddParameter("AlbumID",AlbumID);
+            
 
-            DB.Execute("sproc_tblAlbum_FilterByAlbumID");
+
+            DB.Execute("sproc_tblAlbum_FilterByAlbumID_test");
+            System.Diagnostics.Debug.WriteLine("Nombre de lignes après exécution : " + DB.Count);
+
             if (DB.Count==1)
             {
                 mAlbumID = Convert.ToInt32(DB.DataTable.Rows[0]["AlbumID"]);
