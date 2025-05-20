@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using ClassLibrary;
 namespace ClassLibrary
 {
@@ -75,6 +76,19 @@ namespace ClassLibrary
             DB.AddParameter("@ArtistID", mThisAlbum.AlbumArtistID);
             DB.AddParameter("@Price", mThisAlbum.AlbumPrice);
             return DB.Execute("sproc_tblAlbum_Insert");
+        }
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@AlbumID", mThisAlbum.AlbumID);
+            DB.AddParameter("@Title", mThisAlbum.AlbumTitle);
+            DB.AddParameter("@Genre", mThisAlbum.AlbumGenre);
+            DB.AddParameter("@ReleaseDate", mThisAlbum.AlbumDate);
+            DB.AddParameter("@Description", mThisAlbum.AlbumDescription);
+            DB.AddParameter("@Edition", mThisAlbum.AlbumEdition);
+            DB.AddParameter("@ArtistID", mThisAlbum.AlbumArtistID);
+            DB.AddParameter("@Price", mThisAlbum.AlbumPrice);
+            DB.Execute("sproc_tblAlbum_Update") ;
         }
     }
 }

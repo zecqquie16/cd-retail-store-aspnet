@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -38,5 +39,21 @@ public partial class _1_List : System.Web.UI.Page
     {
         Session["AlbumID"] = -1;
         Response.Redirect("StockDataEntry.aspx");
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Int32 AlbumID;
+        if (lstAlbumList.SelectedIndex != -1)
+        {
+
+            AlbumID = Convert.ToInt32(lstAlbumList.SelectedValue);
+            Session["AlbumID"] = AlbumID;
+            Response.Redirect("StockDataEntry.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record you want to edit ! ";
+        }
     }
 }

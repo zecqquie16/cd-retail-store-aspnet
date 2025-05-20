@@ -8,10 +8,33 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    Int32 AlbumID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        AlbumID = Convert.ToInt32(Session["AlbumID"]);
+        if (IsPostBack == false)
+        {
+            if (AlbumID != -1)
+            {
+                DisplayAlbum();
+            }
+        }
     }
+    void DisplayAlbum()
+    {
+        clsAlbumCollection Album = new clsAlbumCollection();
+        Album.ThisAlbum.Find(AlbumID);
+        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
+        txtAlbumTitle.Text = Album.ThisAlbum.AlbumTitle.ToString();
+        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
+        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
+        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
+        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
+        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
+        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
+
+    }
+
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
@@ -38,6 +61,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
         if (Error == "") 
         {
+            anAlbum.AlbumID = Convert.ToInt32(AlbumID);
             anAlbum.AlbumTitle = AlbumTitle;
             anAlbum.AlbumGenre = AlbumGenre;
             anAlbum.AlbumDescription = AlbumDescription;
@@ -45,10 +69,21 @@ public partial class _1_DataEntry : System.Web.UI.Page
             anAlbum.AlbumDate = Convert.ToDateTime(AlbumDate);
             anAlbum.AlbumPrice = Convert.ToDecimal(AlbumPrice);
             anAlbum.AlbumArtistID = Convert.ToInt32(AlbumArtistID);
-            anAlbum.AlbumID = Convert.ToInt32(AlbumID);
-            clsAlbumCollection AlbumList = new clsAlbumCollection();    
-            AlbumList.ThisAlbum = anAlbum;
-            AlbumList.Add();
+           
+            clsAlbumCollection AlbumList = new clsAlbumCollection();   
+            if (anAlbum.AlbumID == -1)
+                {
+                AlbumList.ThisAlbum = anAlbum;
+                AlbumList.Add();
+                 }
+            else
+            {
+                AlbumList.ThisAlbum.Find(anAlbum.AlbumID);
+                AlbumList.ThisAlbum = anAlbum;
+                AlbumList.Update();
+
+            }
+
             Response.Redirect("StockList.aspx");
         }
         else
