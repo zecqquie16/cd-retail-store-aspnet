@@ -16,7 +16,10 @@
         
         <asp:ListBox ID="lstAlbumList" runat="server" style="z-index: 1; left: 312px; top: 53px; position: absolute; height: 342px; width: 768px; margin-top: 0px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
         
-        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 628px; top: 436px; position: absolute; height: 42px; width: 111px" Text="Add" OnClick="btnAdd_Click" />
+        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 633px; top: 434px; position: absolute; height: 37px; width: 87px" Text="Add" OnClick="btnAdd_Click" />
+        
+        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 461px; top: 434px; position: absolute; height: 37px; width: 87px" Text="Edit" />
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 876px; top: 436px; position: absolute"></asp:Label>
         
     </form>
 </body>

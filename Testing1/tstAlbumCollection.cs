@@ -92,5 +92,37 @@ namespace Testing1
             Assert.AreEqual(allAlbums.ThisAlbum, testAlbum);    
 
         }
+         [TestMethod]
+        public void UpdateMethodOK()
+        {
+            clsAlbumCollection allAlbums = new clsAlbumCollection();
+            
+            clsAlbum testAlbum = new clsAlbum();
+            Int32 PrimaryKey = 0;
+            testAlbum.AlbumID = 30;
+            testAlbum.AlbumTitle = "Kekra";
+            testAlbum.AlbumGenre = "Rap";
+            testAlbum.AlbumDescription = "Album de Kekra";
+            testAlbum.AlbumDate = Convert.ToDateTime("15/07/2022 00:00:00");
+            testAlbum.AlbumEdition = " Sous-côté";
+            testAlbum.AlbumArtistID = 8;
+            testAlbum.AlbumPrice = 22;
+            allAlbums.ThisAlbum = testAlbum;
+            PrimaryKey = allAlbums.Add();
+            testAlbum.AlbumID= PrimaryKey;
+            
+            testAlbum.AlbumTitle = "Deo Favente";
+            testAlbum.AlbumGenre = "Rap";
+            testAlbum.AlbumDescription = "3e Album d'SCH";
+            testAlbum.AlbumDate = Convert.ToDateTime("01/07/2017 00:00:00");
+            testAlbum.AlbumEdition = " Vraiment cool";
+            testAlbum.AlbumArtistID = 19;
+            testAlbum.AlbumPrice = 54;
+            allAlbums.ThisAlbum = testAlbum;
+            allAlbums.Update();
+            allAlbums.ThisAlbum.Find(PrimaryKey);
+            Assert.AreEqual(allAlbums.ThisAlbum, testAlbum);    
+
+        }
     }
 }
