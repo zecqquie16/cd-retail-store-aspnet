@@ -167,50 +167,65 @@ namespace ClassLibrary
                 Error = Error + "The album edition may not exceed 50 characters!/ ";
             }
             decimal testPrice;
-            testPrice = decimal.Parse(albumPrice);
-            if (albumPrice.Length ==0)
+            if (albumPrice.Length == 0) 
+            { Error = Error + "The album price may not be blank!/ "; }
+            else
             {
-                Error = Error + "Album price may not be blank!/ ";
+                testPrice = decimal.Parse(albumPrice);
+
+
+                if (albumPrice.Length > 10)
+                {
+                    Error = Error + "Album price may not exceed 10 characters"
+    ;
+                }
+                if (testPrice < 1)
+                {
+                    Error = Error + "Album price cannot be less than one !/ ";
+                }
+                if (testPrice > 2500)
+                {
+                    Error = Error + "Price cannot exceed 2500!/ ";
+                }
             }
-            if (albumPrice.Length >10)
-            {
-                Error = Error + "Album price may not exceed 10 characters"
-;            }
-            if (testPrice < 1)
-            {
-                Error = Error + "Artist ID cannot be less than 1!/ ";
-            }
-            if (testPrice > 2500)
-            {
-                Error = Error + "Artist ID cannot be greater than 1000!/ ";
-            }
+            
             int testArtistID;
-            testArtistID = int.Parse(albumArtistID);
+            
             if (albumArtistID.Length ==0)
             {
                 Error = Error + "Artist ID may not be blank!/ ";
             }
-            if (testArtistID < 1)
+            else
             {
-                Error = Error + "Artist ID cannot be less than 1!/ ";
+                testArtistID = int.Parse(albumArtistID);
+                if (testArtistID < 1)
+                {
+                    Error = Error + "Artist ID cannot be less than 1!/ ";
+                }
+                if (testArtistID > 1000)
+                {
+                    Error = Error + "Artist ID cannot be greater than 1000!/ ";
+                }
             }
-            if (testArtistID > 1000)
-            {
-                Error = Error + "Artist ID cannot be greater than 1000!/ ";
-            }
-            tempDate = Convert.ToDateTime(albumDate);
-            if (tempDate == null )
+            
+            
+            if (albumDate.Length == 0 )
             {
                 Error = Error + " Release Date cannot be Null!/ ";
             }
-            if (tempDate < Convert.ToDateTime("01/01/1982 00:00:00"))
+            else 
             {
-                Error = Error + "Release Date cannot be before 1982!/ ";
+                tempDate = Convert.ToDateTime(albumDate);
+                if (tempDate < Convert.ToDateTime("01/01/1982 00:00:00"))
+                {
+                    Error = Error + "Release Date cannot be before 1982!/ ";
+                }
+                if (tempDate > DateTime.Now)
+                {
+                    Error = Error + "Release Date cannot be in the future!/ ";
+                }
             }
-            if(tempDate >DateTime.Now)
-            {
-                Error = Error + "Release Date cannot be in the future!/ ";
-            }
+            
             return Error;
         }
     }

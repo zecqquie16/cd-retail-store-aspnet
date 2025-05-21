@@ -8,6 +8,7 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    
     Int32 AlbumID;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -26,12 +27,12 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Album.ThisAlbum.Find(AlbumID);
         txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
         txtAlbumTitle.Text = Album.ThisAlbum.AlbumTitle.ToString();
-        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
-        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
-        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
-        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
-        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
-        txtAlbumID.Text = Album.ThisAlbum.AlbumID.ToString();
+        txtAlbumGenre.Text = Album.ThisAlbum.AlbumGenre.ToString();
+        txtAlbumReleaseDate.Text = Album.ThisAlbum.AlbumDate.ToString();
+        txtAlbumEdition.Text = Album.ThisAlbum.AlbumEdition.ToString();
+        txtAlbumArtistID.Text = Album.ThisAlbum.AlbumArtistID.ToString();
+        txtAlbumPrice.Text = Album.ThisAlbum.AlbumPrice.ToString();
+        txtAlbumDescription.Text = Album.ThisAlbum.AlbumDescription.ToString();
 
     }
 
@@ -42,7 +43,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
       
         string AlbumTitle = txtAlbumTitle.Text;
         
-        string AlbumID = (txtAlbumID.Text);
+        
 
         string AlbumArtistID = (txtAlbumArtistID.Text);
         
@@ -60,8 +61,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         Error = anAlbum.Valid(AlbumTitle, AlbumGenre, AlbumDescription, AlbumEdition, AlbumPrice, AlbumDate, AlbumArtistID);
         if (Error == "") 
-        {
-            anAlbum.AlbumID = Convert.ToInt32(AlbumID);
+        {   
+
+            anAlbum.AlbumID = AlbumID;
             anAlbum.AlbumTitle = AlbumTitle;
             anAlbum.AlbumGenre = AlbumGenre;
             anAlbum.AlbumDescription = AlbumDescription;
@@ -70,7 +72,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
             anAlbum.AlbumPrice = Convert.ToDecimal(AlbumPrice);
             anAlbum.AlbumArtistID = Convert.ToInt32(AlbumArtistID);
            
-            clsAlbumCollection AlbumList = new clsAlbumCollection();   
+            clsAlbumCollection AlbumList = new clsAlbumCollection();
+            Response.Write(AlbumID);
             if (anAlbum.AlbumID == -1)
                 {
                 AlbumList.ThisAlbum = anAlbum;
