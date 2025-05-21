@@ -56,4 +56,41 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record you want to edit ! ";
         }
     }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        Int32 AlbumID;
+        if (lstAlbumList.SelectedIndex != -1)
+        {
+            AlbumID = Convert.ToInt32(lstAlbumList.SelectedValue);
+            Session["AlbumID"] = AlbumID;
+            Response.Redirect("StockConfirmDelete.aspx");
+        } 
+        else
+        {
+            lblError.Text = " Please select the record you want to delete";
+        }
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        clsAlbumCollection allAlbums = new clsAlbumCollection();
+        allAlbums.ReportByTitle(txtFilter.Text);
+        lstAlbumList.DataSource = allAlbums.AlbumList;
+        lstAlbumList.DataTextField = "AlbumTitle";
+        lstAlbumList.DataValueField = "AlbumID";
+        lstAlbumList.DataBind();
+
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        clsAlbumCollection allAlbums = new clsAlbumCollection();
+        allAlbums.ReportByTitle("");
+        txtFilter.Text = "";
+        lstAlbumList.DataSource = allAlbums.AlbumList;
+        lstAlbumList.DataTextField = "AlbumTitle";
+        lstAlbumList.DataValueField = "AlbumID";
+        lstAlbumList.DataBind();
+    }
 }

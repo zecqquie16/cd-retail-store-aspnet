@@ -124,5 +124,64 @@ namespace Testing1
             Assert.AreEqual(allAlbums.ThisAlbum, testAlbum);    
 
         }
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsAlbumCollection allAlbums = new clsAlbumCollection();
+
+            clsAlbum testAlbum = new clsAlbum();
+            Int32 PrimaryKey = 0;
+            testAlbum.AlbumID = 30;
+            testAlbum.AlbumTitle = "Kekra";
+            testAlbum.AlbumGenre = "Rap";
+            testAlbum.AlbumDescription = "Album de Kekra";
+            testAlbum.AlbumDate = Convert.ToDateTime("15/07/2022 00:00:00");
+            testAlbum.AlbumEdition = " Sous-côté";
+            testAlbum.AlbumArtistID = 8;
+            testAlbum.AlbumPrice = 22;
+            allAlbums.ThisAlbum = testAlbum;
+            PrimaryKey = allAlbums.Add();
+            testAlbum.AlbumID = PrimaryKey;
+
+            allAlbums.ThisAlbum.Find(PrimaryKey);
+            allAlbums.Delete();
+            Boolean found = allAlbums.ThisAlbum.Find(PrimaryKey);
+            Assert.IsFalse(found);
+
+        }
+        [TestMethod]
+        public void ReportByTitleMethodOK()
+        {
+            clsAlbumCollection allAlbums = new clsAlbumCollection();
+            clsAlbumCollection FilteredAlbums = new clsAlbumCollection();
+            FilteredAlbums.ReportByTitle("");
+            Assert.AreEqual(FilteredAlbums.Count, allAlbums.Count);
+
+        }
+        [TestMethod]
+        public void ReportByTitleNoneFound()
+        {
+            
+            clsAlbumCollection FilteredAlbums = new clsAlbumCollection();
+            FilteredAlbums.ReportByTitle("N'existePas");
+            Assert.AreEqual(FilteredAlbums.Count, 0);
+
+        }
+        [TestMethod]
+        public void ReportByTitleTestDataFound()
+        {
+
+            clsAlbumCollection FilteredAlbums = new clsAlbumCollection();
+            Boolean OK = true;
+            FilteredAlbums.ReportByTitle("Ce monde est cruel");
+            if (FilteredAlbums.Count == 2)
+            {
+                if (FilteredAlbums.AlbumList[0].AlbumID != 5) OK = false;
+                if (FilteredAlbums.AlbumList[1].AlbumID != 12) OK = false;
+            }
+            else OK = false;
+            Assert.IsTrue(OK); 
+
+        }
     }
 }
