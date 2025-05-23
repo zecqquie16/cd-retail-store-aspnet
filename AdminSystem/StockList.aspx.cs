@@ -93,4 +93,20 @@ public partial class _1_List : System.Web.UI.Page
         lstAlbumList.DataValueField = "AlbumID";
         lstAlbumList.DataBind();
     }
+
+    protected void btnDisplay_Click(object sender, EventArgs e)
+    {
+        Int32 AlbumID;
+        if (lstAlbumList.SelectedIndex != -1)
+        {
+
+            AlbumID = Convert.ToInt32(lstAlbumList.SelectedValue);
+            Session["AlbumID"] = AlbumID;
+            Response.Redirect("StockNew.aspx");
+        }
+        else
+        {
+            lblError.Text = "Please select a record you want to display ";
+        }
+    }
 }

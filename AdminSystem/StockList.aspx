@@ -28,6 +28,8 @@
         <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" style="z-index: 1; left: 1149px; top: 155px; position: absolute" Text="Apply" />
         <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" style="z-index: 1; left: 1294px; top: 154px; position: absolute" Text="Clear" />
         
+        <asp:Button ID="btnDisplay" runat="server" OnClick="btnDisplay_Click" style="z-index: 1; left: 530px; top: 519px; position: absolute; height: 68px; width: 135px" Text="Display Album" />
+        
     </form>
 </body>
 </html>
