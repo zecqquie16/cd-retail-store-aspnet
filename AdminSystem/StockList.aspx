@@ -30,6 +30,8 @@
         
         <asp:Button ID="btnDisplay" runat="server" OnClick="btnDisplay_Click" style="z-index: 1; left: 530px; top: 519px; position: absolute; height: 68px; width: 135px" Text="Display Album" />
         
+        <asp:Button ID="btnListToMain" runat="server" OnClick="btnEntryToMain_Click" style="z-index: 1; left: 1106px; position: absolute; width: 177px; top: 446px" Text="Return to main menu" />
+        
     </form>
 </body>
 </html>

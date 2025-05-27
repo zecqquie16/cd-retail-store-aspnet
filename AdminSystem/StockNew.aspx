@@ -23,7 +23,7 @@
         <asp:Panel ID="pnlAbout" runat="server" BorderStyle="Solid" style="z-index: 1; left: 790px; top: 165px; position: absolute; height: 380px; width: 630px">
             <asp:Label ID="lbl1" runat="server" style="z-index: 1; left: 82px; top: 74px; position: absolute" Text="Artist :"></asp:Label>
             <asp:Label ID="lbl2" runat="server" style="z-index: 1; left: 74px; top: 117px; position: absolute; height: 25px" Text="Musical genre: "></asp:Label>
-            <asp:Button ID="btnBuy" runat="server" Font-Bold="True" Font-Size="Large" Height="60px" style="z-index: 1; left: 210px; top: 271px; position: absolute; bottom: 49px; width: 216px" Text="Buy/Add to cart" />
+            <asp:Button ID="btnBuy" runat="server" Font-Bold="True" Font-Size="Large" Height="60px" style="z-index: 1; left: 219px; top: 275px; position: absolute; bottom: 45px; width: 216px" Text="Buy/Add to cart" />
             <asp:DropDownList ID="lstEdition" runat="server" style="z-index: 1; left: 243px; top: 161px; position: absolute; width: 166px">
             </asp:DropDownList>
             <asp:Label ID="lbl4" runat="server" style="z-index: 1; left: 76px; top: 212px; position: absolute; height: 25px; right: 506px" Text="Price: "></asp:Label>
@@ -33,6 +33,8 @@
         <asp:Label ID="lbl3" runat="server" style="z-index: 1; left: 867px; top: 327px; position: absolute; height: 25px" Text="Edition:"></asp:Label>
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 122px; top: 587px; position: absolute; width: 146px" Text="Description"></asp:Label>
         <asp:Label ID="lblDescription" runat="server" style="z-index: 1; left: 123px; top: 631px; position: absolute; height: 361px; width: 1241px" Text="Description Here.."></asp:Label>
+        
+        <asp:Button ID="btnDisplayToMain" runat="server" OnClick="btnEntryToMain_Click" style="z-index: 1; left: 931px; position: absolute; width: 177px; top: 587px" Text="Return to main menu" />
         
     </form>
 </body>

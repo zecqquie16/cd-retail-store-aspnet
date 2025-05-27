@@ -16,6 +16,9 @@
     <form id="form1" runat="server">
       
         
+            <asp:Button ID="btnEntryToMain" runat="server" OnClick="btnEntryToMain_Click" style="z-index: 1; left: 984px; position: absolute; width: 177px; top: 465px" Text="Return to main menu" />
+      
+        
             <asp:Label ID="lblAlbumID" runat="server" style="z-index: 1; left: 60px; top: 115px; position: absolute; width: 134px; right: 1284px" Text="AlbumID"></asp:Label>
             <asp:Label ID="lblAlbumArtistID" runat="server" style="z-index: 1; left: 60px; top: 276px; position: absolute; width: 134px; " Text="ArtistID" height="22px"></asp:Label>
             <asp:Label ID="lblAlbumTitle" runat="server" style="z-index: 1; left: 60px; top: 169px; position: absolute; width: 134px; " Text="Title" height="22px"></asp:Label>

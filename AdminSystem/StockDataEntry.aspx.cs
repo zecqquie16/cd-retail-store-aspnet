@@ -134,4 +134,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
 
         
     }
+
+    protected void btnEntryToMain_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }
