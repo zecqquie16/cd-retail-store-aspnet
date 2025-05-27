@@ -49,7 +49,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="basic.cs" />
+    <Compile Include="costumer_login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tstcostumer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
