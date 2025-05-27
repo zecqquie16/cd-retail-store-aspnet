@@ -44,6 +44,7 @@
     <Compile Include="clsAlbum.cs" />
     <Compile Include="clsAlbumCollection.cs" />
     <Compile Include="clsArtist.cs" />
+    <Compile Include="clscostumer.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsLabel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
