@@ -10,10 +10,10 @@ namespace ClassLibrary
        public clsAlbumCollection() 
         {
             
-            clsDataConnection DB = new clsDataConnection();
-            DB.Execute("sproc_tblAlbum_SelectAll");
+        clsDataConnection DB = new clsDataConnection();
+           DB.Execute("sproc_tblAlbum_SelectAll");
             
-            PopulateArray (DB);
+          PopulateArray (DB);//
 
         }
         List<clsAlbum> mAlbumList = new List<clsAlbum>();

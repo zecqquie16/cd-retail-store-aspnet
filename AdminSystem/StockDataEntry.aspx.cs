@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities.Expressions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -107,18 +108,30 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsAlbum anAlbum = new clsAlbum();
         Int32 AlbumID;
         Boolean found = false;
-        AlbumID = Convert.ToInt32(txtAlbumID.Text);
-        found = anAlbum.Find(AlbumID);
-        if (found)
+        
+        if (txtAlbumID.Text.Length == 0) { lblError.Text = "You need to enter a number in AlbumID field in order to find a record"; }
+        else if (!int.TryParse(txtAlbumID.Text, out AlbumID))
         {
-            txtAlbumTitle.Text = anAlbum.AlbumTitle;
-            txtAlbumGenre.Text = anAlbum.AlbumGenre;
-            txtAlbumReleaseDate.Text = Convert.ToString(anAlbum.AlbumDate);
-            txtAlbumDescription.Text = anAlbum.AlbumDescription;
-            txtAlbumEdition.Text = anAlbum.AlbumEdition;
-            txtAlbumArtistID.Text = Convert.ToString(anAlbum.AlbumArtistID);   
-            txtAlbumPrice.Text = Convert.ToString((int)anAlbum.AlbumPrice);
-
+            lblError.Text = "AlbumID must be a number!";
         }
+        else
+        {
+            AlbumID = Convert.ToInt32(txtAlbumID.Text);
+            found = anAlbum.Find(AlbumID);
+            if (found)
+            {
+                txtAlbumTitle.Text = anAlbum.AlbumTitle;
+                txtAlbumGenre.Text = anAlbum.AlbumGenre;
+                txtAlbumReleaseDate.Text = Convert.ToString(anAlbum.AlbumDate);
+                txtAlbumDescription.Text = anAlbum.AlbumDescription;
+                txtAlbumEdition.Text = anAlbum.AlbumEdition;
+                txtAlbumArtistID.Text = Convert.ToString(anAlbum.AlbumArtistID);
+                txtAlbumPrice.Text = Convert.ToString((int)anAlbum.AlbumPrice);
+
+            }
+            else { lblError.Text = " There is no recrod with such AlbumID "; }
+        }
+
+        
     }
 }
