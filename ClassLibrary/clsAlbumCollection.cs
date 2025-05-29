@@ -90,6 +90,7 @@ namespace ClassLibrary
             DB.AddParameter("@Title", Title);
             DB.Execute("sproc_tblAlbum_FilterByTitle");
             PopulateArray(DB);
+            
         }
         void PopulateArray(clsDataConnection DB)
         {

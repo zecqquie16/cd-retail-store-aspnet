@@ -87,10 +87,13 @@ public partial class _1_List : System.Web.UI.Page
         lstAlbumList.DataTextField = "AlbumTitle";
         lstAlbumList.DataValueField = "AlbumID";
         lstAlbumList.DataBind();
-
+        if (allAlbums.Count == 0)
+        {
+            lblError.Text = "No album available match your title";
+        }
     }
 
-    protected void btnClear_Click(object sender, EventArgs e)
+        protected void btnClear_Click(object sender, EventArgs e)
     {
         clsAlbumCollection allAlbums = new clsAlbumCollection();
         allAlbums.ReportByTitle("");

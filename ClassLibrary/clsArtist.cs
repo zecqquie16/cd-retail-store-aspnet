@@ -1,13 +1,123 @@
-﻿namespace ClassLibrary
+﻿using System;
+using System.Data;
+using System.Diagnostics.Eventing.Reader;
+
+namespace ClassLibrary
 {
     public class clsArtist
     {
-        public int ArtistLabelID { get; set; } //foreign key
-        public string ArtistBiography { get; set; }
-        public string ArtistNationality { get; set; }
-        public string ArtistGenre { get; set; }
-        public bool ArtistSolo { get; set; }
-        public string ArtistName { get; set; }
-        public int ArtistID { get; set; } //primary key 
+        private int mArtistID;
+        private string mArtistName;
+        private bool mArtistIsSolo;
+        private string mArtistGenre;
+        private string mArtistNationality;
+        private string mArtistBiography;
+
+      
+        public string ArtistName
+        {
+            get
+            {
+                return mArtistName;
+            }
+            set
+            {
+                mArtistName = value;
+            }
+        }
+        public int ArtistID
+        {
+            get
+            {
+                return mArtistID;
+            }
+            set
+            {
+                mArtistID = value;
+            }
+
+        } //primary key
+        public string ArtistGenre
+        {
+            get
+            {
+                return mArtistGenre;
+            }
+            set
+            {
+                mArtistGenre = value;
+            }
+        }
+       
+       
+        public bool ArtistIsSolo
+        {
+            get
+            {
+                return mArtistIsSolo;
+            }
+            set
+            {
+                mArtistIsSolo = value;
+            }
+
+        }
+        public string ArtistNationality
+        {
+            get
+            {
+                return mArtistNationality;
+            }
+            set
+            {
+                mArtistNationality = value;
+            }
+        }
+        public string ArtistBiography
+        {
+            get
+            {
+                return mArtistBiography;
+            }
+            set
+            {
+                mArtistBiography = value;
+            }
+        }
+        
+
+        public bool Find(int ArtistID)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("ArtistID", ArtistID);
+
+
+
+            DB.Execute("sproc_tblArtist_FilterByArtistID");
+            System.Diagnostics.Debug.WriteLine("Nombre de lignes après exécution : " + DB.Count);
+
+            if (DB.Count == 1)
+            {
+                mArtistID = Convert.ToInt32(DB.DataTable.Rows[0]["ArtistID"]);
+                mArtistGenre = Convert.ToString(DB.DataTable.Rows[0]["Genre"]);
+                mArtistName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
+                mArtistNationality = Convert.ToString(DB.DataTable.Rows[0]["Nationality"]);
+                
+                mArtistBiography = Convert.ToString(DB.DataTable.Rows[0]["Biography"]);
+                mArtistIsSolo = Convert.ToBoolean(DB.DataTable.Rows[0]["Solo"]);
+                return true;
+            }
+
+
+            else
+            {
+                Console.WriteLine("Chaîne de connexion utilisée : " + DB.ConnectionString);
+
+                return false;
+            }
+        }
+
+       
+        
     }
 }
