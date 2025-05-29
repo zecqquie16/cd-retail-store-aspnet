@@ -24,7 +24,7 @@
             <asp:Label ID="lbl1" runat="server" style="z-index: 1; left: 82px; top: 74px; position: absolute" Text="Artist :"></asp:Label>
             <asp:Label ID="lbl2" runat="server" style="z-index: 1; left: 74px; top: 117px; position: absolute; height: 25px" Text="Musical genre: "></asp:Label>
             <asp:Button ID="btnBuy" runat="server" Font-Bold="True" Font-Size="Large" Height="60px" style="z-index: 1; left: 219px; top: 275px; position: absolute; bottom: 45px; width: 216px" Text="Buy/Add to cart" />
-            <asp:DropDownList ID="lstEdition" runat="server" style="z-index: 1; left: 243px; top: 161px; position: absolute; width: 166px">
+            <asp:DropDownList ID="ddlEdition" runat="server" AutoPostBack= "true" OnSelectedIndexChanged="ddlEdition_SelectedIndexChanged" style="z-index: 1; left: 243px; top: 161px; position: absolute; width: 166px">
             </asp:DropDownList>
             <asp:Label ID="lbl4" runat="server" style="z-index: 1; left: 76px; top: 212px; position: absolute; height: 25px; right: 506px" Text="Price: "></asp:Label>
             <asp:Label ID="lblPrice" runat="server" style="z-index: 1; left: 305px; top: 213px; position: absolute; width: 94px" Text="Price"></asp:Label>

@@ -14,8 +14,19 @@ namespace ClassLibrary
         private DateTime mAlbumDate;
         private decimal mAlbumPrice;
         private string mAlbumEdition;
-        
+        private string mAlbumCover;
 
+        public string AlbumCover
+        {
+            get
+            {
+                return mAlbumCover;
+            }
+            set
+            {
+                mAlbumCover = value;
+            }
+        }
         public string AlbumTitle
         {
             get
@@ -129,6 +140,7 @@ namespace ClassLibrary
                 mAlbumDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ReleaseDate"]);
                 mAlbumPrice = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
                 mAlbumEdition = Convert.ToString(DB.DataTable.Rows[0]["Edition"]);
+                mAlbumCover = Convert.ToString (DB.DataTable.Rows[0]["Cover"]);
                 return true;
             }
 
