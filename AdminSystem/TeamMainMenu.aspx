@@ -5,20 +5,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        #form1 {
-            height: 1164px;
-        }
-    </style>
+    <style>
+    html, body, form {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #00051F;
+    }
+</style>
+
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="pageMain" runat="server" aria-hidden="False" style ="background-color: #00051F; height:100%; " draggable="false">
         
-        <asp:Image ID="Image1" runat="server" ImageUrl="~/StockOnTheRacksLogo.png" style="z-index: 1; left: 500px; top: 64px; position: absolute; height: 117px; width: 403px" />
-        <asp:Label ID="lblSystemName" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; left: 496px; top: 204px; position: absolute" Text="OnTheRacks Main Menu"></asp:Label>
-        <asp:Button ID="btnStock" runat="server" OnClick="btnStock_Click" style="z-index: 1; left: 300px; top: 335px; position: absolute; right: 1097px" Text="Albums" />
-        <asp:Button ID="btnAuthentication" runat="server" OnClick="btnAuthentication_Click" style="z-index: 1; left: 623px; top: 330px; position: absolute" Text="Login/Register" />
-        <asp:Button ID="btnStaff" runat="server" OnClick="btnStaff_Click" style="z-index: 1; left: 1041px; top: 329px; position: absolute" Text="Staff" />
+        <asp:Image ID="imgLogo" runat="server" ImageUrl="~/OnTheRocksLogoV4.png" style="z-index: 1; left: 32px; top: 10px; position: absolute; height: 190px; width: 245px" BackColor="Black" BorderStyle="None" />
+        <asp:Label ID="lblSystemName" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; left: 136px; top: 267px; position: absolute" Text="Own the Music" ForeColor="White"></asp:Label>
+        <asp:Button ID="btnAuthentication" runat="server" OnClick="btnAuthentication_Click" style="z-index: 1; left: 865px; top: 59px; position: absolute; height: 45px;" Text="Login/Register" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" />
+       
+        <asp:Button ID="btnStaff" runat="server" OnClick="btnStaff_Click" style="z-index: 1; left: 1128px; top: 59px; position: absolute; height: 45px; width: 183px;" Text="Staff" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" />
+        
+        <asp:Label ID="lblSystemName0" runat="server" Font-Bold="False" Font-Size="Large" style=" font-name:Arial;  z-index: 1; left: 134px; top: 331px; position: absolute; right: 866px;" Text="Owning a real CD album gives you a real connection to the music—it turns something you’d normally just stream into a personal keepsake. The artwork, booklet, and lyrics make the experience way more immersive than just listening online. Plus, collecting CDs is a cool way to support your favourite artists and hang on to something that feels nostalgic and lasting !" ForeColor="White"></asp:Label>
+        
+        
+        
+
+        <asp:Button ID="btnStock" runat="server" OnClick="btnStock_Click" style="z-index: 1; left: 703px; top: 370px; position: absolute; right: 560px; height: 59px; width: 215px;" Text="Discover our collection ! " BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" Font-Bold="True" Font-Names="Arial" ForeColor="White" />
+        
+        
         
     </form>
 </body>

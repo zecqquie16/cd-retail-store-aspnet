@@ -23,7 +23,7 @@ public partial class _1_List : System.Web.UI.Page
 
         clsAlbumCollection Albums = new clsAlbumCollection();
         
-        Response.Write("Nb d'albums : " + Albums.Count);
+       
         if (Albums.Count ==0 ) { lblError.Text = lblError.Text + " There are no album records available at the moment! /"; }
         else
         {
