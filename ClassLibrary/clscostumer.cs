@@ -13,5 +13,6 @@
         public bool Active { get; set; }
 
         // You can add validation methods or constructors if needed
+        //chnages on the github
     }
 }
