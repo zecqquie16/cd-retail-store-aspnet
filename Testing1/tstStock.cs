@@ -168,8 +168,8 @@ namespace Testing1
         {
             clsArtist anArtist = new clsArtist();
             bool testdata = false;
-            anArtist.ArtistSolo = testdata;
-            Assert.AreEqual(anArtist.ArtistSolo, testdata);
+            anArtist.ArtistIsSolo = testdata;
+            Assert.AreEqual(anArtist.ArtistIsSolo, testdata);
         }
 
         [TestMethod]
@@ -199,14 +199,7 @@ namespace Testing1
             Assert.AreEqual(anArtist.ArtistBiography, testdata);
         }
 
-        [TestMethod]
-        public void ArtistLabelIDOK()
-        {
-            clsArtist anArtist = new clsArtist();
-            int testdata = 1;
-            anArtist.ArtistLabelID = testdata;
-            Assert.AreEqual(anArtist.ArtistLabelID, testdata);
-        }
+      
         [TestMethod]
         public void ArtistIDOK()
         {
