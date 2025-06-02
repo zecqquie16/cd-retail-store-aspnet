@@ -11,7 +11,11 @@ public partial class _1_Nouveau : System.Web.UI.Page
     Int32 AlbumID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if (Session["StaffID"] != null && Session["StaffName"] != null)
+        {
+            btnLogOut.Visible = true;
+            lblUser.Text = "Logged in as: " + Session["StaffName"] + " (ID: " + Session["StaffID"] + "), Staff-level access granted. ";
+        }
         AlbumID = Convert.ToInt32(Session["AlbumID"]);
         clsAlbumCollection Album = new clsAlbumCollection();
         Album.ThisAlbum.Find(AlbumID);
@@ -55,6 +59,29 @@ public partial class _1_Nouveau : System.Web.UI.Page
     {
         int selectedAlbumID = Convert.ToInt32(ddlEdition.SelectedValue);
         Session["AlbumID"] = selectedAlbumID;
+        Response.Redirect("StockNew.aspx");
+    }
+
+    protected void btnRegister_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AuthentificationDataEntry.aspx");
+    }
+
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("AuthentificationDataEntry.aspx");
+    }
+
+    protected void btnStaffGateway_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StaffDataEntry.aspx");
+    }
+
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+        Session["StaffID"] = null;
+        Session["IsStaff"] = false;
+        Session["StaffName"] = null;
         Response.Redirect("StockNew.aspx");
     }
 }

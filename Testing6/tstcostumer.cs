@@ -11,7 +11,7 @@ namespace Testing6
         [TestMethod]
         public void InstanceOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             Assert.IsNotNull(ACustomer);
         }
 
@@ -19,7 +19,7 @@ namespace Testing6
         [TestMethod]
         public void CustomerIDPropertyOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             Int64 TestData = 1;
             ACustomer.CustomerID = TestData;
             Assert.AreEqual(ACustomer.CustomerID, TestData);
@@ -29,7 +29,7 @@ namespace Testing6
         [TestMethod]
         public void CustomerNamePropertyOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             string TestData = "John Smith";
             ACustomer.CustomerName = TestData;
             Assert.AreEqual(ACustomer.CustomerName, TestData);
@@ -39,7 +39,7 @@ namespace Testing6
         [TestMethod]
         public void EmailAddressPropertyOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             string TestData = "john@example.com";
             ACustomer.EmailAddress = TestData;
             Assert.AreEqual(ACustomer.EmailAddress, TestData);
@@ -49,7 +49,7 @@ namespace Testing6
         [TestMethod]
         public void BillingAddressPropertyOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             string TestData = "123 Main Street";
             ACustomer.BillingAddress = TestData;
             Assert.AreEqual(ACustomer.BillingAddress, TestData);
@@ -59,7 +59,7 @@ namespace Testing6
         [TestMethod]
         public void PhoneNumberPropertyOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             string TestData = "0123456789";
             ACustomer.PhoneNumber = TestData;
             Assert.AreEqual(ACustomer.PhoneNumber, TestData);
@@ -69,7 +69,7 @@ namespace Testing6
         [TestMethod]
         public void GenderPropertyOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             string TestData = "Male";
             ACustomer.Gender = TestData;
             Assert.AreEqual(ACustomer.Gender, TestData);
@@ -79,7 +79,7 @@ namespace Testing6
         [TestMethod]
         public void PasswordPropertyOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             string TestData = "pass123456";
             ACustomer.Password = TestData;
             Assert.AreEqual(ACustomer.Password, TestData);
@@ -89,7 +89,7 @@ namespace Testing6
         [TestMethod]
         public void ActivePropertyOK()
         {
-            clscostumer ACustomer = new clscostumer();
+            clsCustomer ACustomer = new clsCustomer();
             bool TestData = true;
             ACustomer.Active = TestData;
             Assert.AreEqual(ACustomer.Active, TestData);
