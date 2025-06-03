@@ -199,6 +199,26 @@ public class clsDataConnection
         //return the result of the stored procedure
         return Convert.ToInt32(returnValue.Value);
     }
+    //New execute method I (Zakaria) added that is pretty much the same as the original execute one, the difference is that it returns a DataTable (needed for a functionality)
+    public DataTable ExecuteDataTable(string SProcName)
+    {
+        SqlConnection connectionToDB = new SqlConnection(connectionString);
+        connectionToDB.Open();
+
+        SqlCommand dataCommand = new SqlCommand(SProcName, connectionToDB);
+        for (int Counter = 0; Counter < SQLParams.Count; Counter++)
+        {
+            dataCommand.Parameters.Add(SQLParams[Counter]);
+        }
+
+        dataCommand.CommandType = CommandType.StoredProcedure;
+        SqlDataAdapter dataAdapter = new SqlDataAdapter(dataCommand);
+        DataTable dt = new DataTable();
+        dataAdapter.Fill(dt);
+
+        connectionToDB.Close();
+        return dt;
+    }
 
     public Int32 Count
     //property that returns the count of records in the query results

@@ -18,7 +18,7 @@
 <body style="height: 855px">
     <form id="StockListPage" runat="server" style="background-color:#00051F; height:100%">
         
-        <asp:ListBox ID="lstAlbumList" runat="server" style="z-index: 1; left: 264px; top: 346px; position: absolute; height: 342px; width: 768px; margin-top: 0px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
+        <asp:ListBox ID="lstAlbumList" runat="server"  BorderColor="#444" BorderStyle="Solid" BorderWidth="1px" style=" border-radius: 6px; padding: 6px; z-index: 1; left: 264px; top: 346px; position: absolute; height: 342px; width: 768px; margin-top: 0px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" BackColor="#00051F" ForeColor="White" Rows="6" Width="300px"></asp:ListBox>
         
         <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 389px; top: 742px; position: absolute; height: 37px; width: 87px" Text="Add" OnClick="btnAdd_Click" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" />
         

@@ -22,12 +22,11 @@ html, body, form
         <asp:Image ID="imgCover" runat="server" style="z-index: 1; left: 264px; top: 207px; position: absolute; height: 328px; width: 391px" />
         <asp:Label ID="lblTitle" runat="server" style="z-index: 1; left: 900px; top: 182px; position: absolute; height: 49px; width: 388px" Text="Titre" Font-Bold="True" Font-Overline="False" Font-Size="XX-Large" Font-Strikeout="False" ForeColor="White"></asp:Label>
         
-        <asp:Label ID="lblArtistName" runat="server" Font-Bold="True" Font-Italic="True" Font-Size="Medium" style="z-index: 1; left: 1069px; top: 242px; position: absolute; width: 210px; height: 25px" Text="ArtistName" ForeColor="White"></asp:Label>
         <asp:Label ID="lblGenre" runat="server" style="z-index: 1; left: 1096px; top: 287px; position: absolute; width: 128px" Text="Genre" ForeColor="White"></asp:Label>
         <asp:Panel ID="pnlAbout" runat="server" BorderStyle="Solid" style="z-index: 1; left: 790px; top: 165px; position: absolute; height: 380px; width: 630px" ForeColor="White">
             <asp:Label ID="lblArtist" runat="server" style="z-index: 1; left: 82px; top: 74px; position: absolute" Text="Artist :"></asp:Label>
             <asp:Label ID="lblGenr" runat="server" style="z-index: 1; left: 74px; top: 117px; position: absolute; height: 25px" Text="Musical genre: "></asp:Label>
-            <asp:Button ID="btnBuy" runat="server" Font-Bold="True" Font-Size="Large" Height="60px" style="z-index: 1; left: 219px; top: 275px; position: absolute; bottom: 45px; width: 216px" Text="Purchase" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" />
+            <asp:Button ID="btnBuy" runat="server" Font-Bold="True" Font-Size="Large" Height="60px" style="z-index: 1; left: 219px; top: 275px; position: absolute; bottom: 45px; width: 216px" Text="Purchase" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" OnClick="btnBuy_Click" />
             <asp:DropDownList ID="ddlEdition" runat="server" AutoPostBack= "true" OnSelectedIndexChanged="ddlEdition_SelectedIndexChanged" style="z-index: 1; left: 243px; top: 161px; position: absolute; width: 166px">
             </asp:DropDownList>
             <asp:Label ID="lblPric" runat="server" style="z-index: 1; left: 76px; top: 212px; position: absolute; height: 25px; right: 506px" Text="Price: "></asp:Label>
@@ -47,6 +46,8 @@ html, body, form
         <asp:Button ID="btnRegister" runat="server" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" OnClick="btnRegister_Click" style="z-index: 1; left: 1097px; top: 65px; position: absolute; height: 54px; width: 94px; right: 287px" Text="Register" />
         <asp:Label ID="lblUser" runat="server" ForeColor="White" style="z-index: 1; left: 310px; top: 43px; position: absolute; width: 366px"></asp:Label>
         <asp:Button ID="btnLogOut" runat="server" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" OnClick="btnLogOut_Click" style="z-index: 1; left: 446px; top: 99px; position: absolute; height: 54px" Text="Log Out" Visible="False" width="94px" />
+        
+        <asp:HyperLink ID="hlArtistName" runat="server" Font-Bold="True" Font-Italic="True" ForeColor="White" style="z-index: 1; left: 1072px; top: 241px; position: absolute; height: 21px">ArtistName</asp:HyperLink>
         
     </form>
 </body>

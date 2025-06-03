@@ -6,6 +6,7 @@
     [Nationality] VARCHAR (50)  NOT NULL,
     [Biography]   VARCHAR (MAX) NOT NULL,
     [LabelID]     INT           NULL,
+    [Image]       VARCHAR (255) NULL,
     PRIMARY KEY CLUSTERED ([ArtistID] ASC)
 );
 

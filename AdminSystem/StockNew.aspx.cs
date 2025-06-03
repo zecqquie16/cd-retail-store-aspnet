@@ -22,7 +22,9 @@ public partial class _1_Nouveau : System.Web.UI.Page
         clsArtistCollection ArtistCollection = new clsArtistCollection();
         int artistID = Album.ThisAlbum.AlbumArtistID;
         ArtistCollection.ThisArtist.Find(artistID);
-        lblArtistName.Text = ArtistCollection.ThisArtist.ArtistName;
+        Session["ArtistID"] = artistID;
+        hlArtistName.Text = ArtistCollection.ThisArtist.ArtistName;
+        hlArtistName.NavigateUrl = "StockArtistList.aspx";
         if (!IsPostBack)
         {
             // Step 1: Get all albums with the same title
@@ -83,5 +85,10 @@ public partial class _1_Nouveau : System.Web.UI.Page
         Session["IsStaff"] = false;
         Session["StaffName"] = null;
         Response.Redirect("StockNew.aspx");
+    }
+
+    protected void btnBuy_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("OrderDataEntru.aspx");
     }
 }
