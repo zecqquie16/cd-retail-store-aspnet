@@ -60,12 +60,14 @@ namespace ClassLibrary
             DB.AddParameter("@Biography", mThisArtist.ArtistBiography);
             DB.AddParameter("@Nationality", mThisArtist.ArtistNationality);
             DB.AddParameter("@Solo", mThisArtist.ArtistIsSolo);
+            DB.AddParameter("@Image", mThisArtist.ArtistImage);
          
             return DB.Execute("sproc_tblArtist_Insert");
         }
         public void Update()
         {
             clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ArtistID", mThisArtist.ArtistID);
             DB.AddParameter("@Name", mThisArtist.ArtistName);
             DB.AddParameter("@Genre", mThisArtist.ArtistGenre);
             DB.AddParameter("@Biography", mThisArtist.ArtistBiography);

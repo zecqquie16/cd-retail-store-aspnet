@@ -32,7 +32,7 @@ html, body, form
             
             <asp:TextBox ID="txtAlbumPrice" runat="server" style="z-index: 1; left: 491px; top: 516px; position: absolute; height: 25px; margin-bottom: 0px" width="168px"></asp:TextBox>
             <asp:TextBox ID="txtAlbumArtistID" runat="server" style="z-index: 1; left: 491px; top: 464px; position: absolute; height: 25px; margin-bottom: 0px" width="168px"></asp:TextBox>
-            <asp:TextBox ID="txtAlbumDescription" runat="server" style="z-index: 1; left: 855px; top: 474px; position: absolute; height: 140px; margin-bottom: 0px; width: 426px;"></asp:TextBox>
+            <asp:TextBox ID="txtAlbumDescription" runat="server" style="z-index: 1; left: 855px; top: 474px; position: absolute; height: 188px; margin-bottom: 0px; width: 426px;" TextMode="MultiLine"></asp:TextBox>
             <asp:Label ID="lblAlbumDescription" runat="server" style="z-index: 1; left: 740px; top: 470px; position: absolute; width: 108px; " Text="Description:" height="22px" ForeColor="White"></asp:Label>
             <asp:Label ID="lblAlbumPrice" runat="server" style="z-index: 1; left: 355px; top: 522px; position: absolute; width: 134px; " Text="Price:" height="22px" ForeColor="White"></asp:Label>
             <asp:Label ID="lblAlbumReleaseDate" runat="server" style="z-index: 1; left: 355px; top: 413px; position: absolute; width: 134px; " Text="Release Date:" height="22px" ForeColor="White"></asp:Label>
@@ -49,7 +49,7 @@ html, body, form
                
           
 
-                <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 582px; top: 588px; position: absolute; height: 29px;" Text="Cancel" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" width="127px" />
+                <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 582px; top: 588px; position: absolute; height: 29px;" Text="Cancel" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" width="127px" OnClick="btnCancel_Click" />
           
           
             <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 1069px; top: 271px; position: absolute; height: 29px;" ForeColor="White"></asp:Label>
@@ -61,10 +61,7 @@ html, body, form
             <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 898px; top: 270px; position: absolute; width: 131px" Text="Find" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" />
        
             
-            <asp:Panel ID="Panel1" runat="server" style="z-index: 1; left: 0px; top: 0px; position: absolute; height: 22px; width: 1478px">
-                <asp:Panel ID="Panel2" runat="server" style="z-index: 1; left: 248px; top: 243px; position: absolute; height: 409px; width: 1192px" BorderColor="White" BorderStyle="Solid" ForeColor="White">
-                </asp:Panel>
-            </asp:Panel>
+            
             <asp:Label ID="lblAlbumTitle" runat="server" style="z-index: 1; left: 355px; top: 365px; position: absolute; width: 134px; " Text="Title:" height="22px" ForeColor="White"></asp:Label>
             <asp:Label ID="lblUser" runat="server" ForeColor="White" style="z-index: 1; left: 303px; top: 42px; position: absolute; width: 250px"></asp:Label>
             <asp:Label ID="lblPageTitle" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="XX-Large" ForeColor="White" style="z-index: 1; left: 559px; top: 155px; position: absolute; width: 558px; right: 361px" Text="Staff dedicated album editor "></asp:Label>
@@ -74,3 +71,4 @@ html, body, form
     &nbsp;
 </body>
 </html>
+

@@ -89,6 +89,11 @@ public partial class _1_Nouveau : System.Web.UI.Page
 
     protected void btnBuy_Click(object sender, EventArgs e)
     {
-        Response.Redirect("OrderDataEntru.aspx");
+        Response.Redirect("OrderDataEntry.aspx");
+    }
+
+    protected void btnToAlbumList_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StockList.apx");
     }
 }

@@ -181,6 +181,8 @@ namespace ClassLibrary
             decimal testPrice;
             if (albumPrice.Length == 0) 
             { Error = Error + "The album price may not be blank!/ "; }
+            else if(!decimal.TryParse(albumPrice, out testPrice))
+            { Error = Error + "Enter a valid price ( decimal )"; }
             else
             {
                 testPrice = decimal.Parse(albumPrice);
@@ -207,6 +209,9 @@ namespace ClassLibrary
             {
                 Error = Error + "Artist ID may not be blank!/ ";
             }
+            else if (!int.TryParse(albumArtistID, out testArtistID))
+            { Error = Error + "Enter a valid artistID ( int )"; }
+           
             else
             {
                 testArtistID = int.Parse(albumArtistID);
@@ -225,7 +230,9 @@ namespace ClassLibrary
             {
                 Error = Error + " Release Date cannot be Null!/ ";
             }
-            else 
+            else if (!DateTime.TryParse(albumDate, out tempDate))
+            { Error = Error + "Enter a valid date! /"; }
+            else
             {
                 tempDate = Convert.ToDateTime(albumDate);
                 if (tempDate < Convert.ToDateTime("01/01/1982 00:00:00"))

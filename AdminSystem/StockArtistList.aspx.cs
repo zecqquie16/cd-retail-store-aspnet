@@ -19,17 +19,21 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
         if (Session["StaffID"] != null && Session["StaffName"] != null)
         {
             btnLogOut.Visible = true;
+            btnAdd.Visible = true;
+            btnEdit.Visible = true;
+            lblStaffFunctionalities.Visible = true;
             lblUser.Text = "Logged in as: " + Session["StaffName"] + " (ID: " + Session["StaffID"] + "), Staff-level access granted. ";
         }
         Int32 ArtistID;
         ArtistID = Convert.ToInt32(Session["ArtistID"]);
         clsArtistCollection anArtist = new clsArtistCollection();
         anArtist.ThisArtist.Find(ArtistID);
-        lblBiographyTitle.Text = lblBiographyTitle.Text + anArtist.ThisArtist.ArtistName +":";
+        lblBiographyTitle.Text = lblBiographyTitle.Text + anArtist.ThisArtist.ArtistName + ":";
         lblArtistName.Text = anArtist.ThisArtist.ArtistName;
         lblGenree.Text = anArtist.ThisArtist.ArtistGenre;
         lblNationalityy.Text = anArtist.ThisArtist.ArtistNationality;
         lblBiography.Text = anArtist.ThisArtist.ArtistBiography;
+        ImageArtist.ImageUrl = anArtist.ThisArtist.ArtistImage;
         if (anArtist.ThisArtist.ArtistIsSolo == true)
         { lblIsSoloo.Text = "Yes"; }
         else
@@ -40,7 +44,7 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
     void DisplayArtistAlbums()
     {
         clsDataConnection DB = new clsDataConnection();
-      
+
         clsAlbumCollection Albums = new clsAlbumCollection();
         Int32 ArtistID;
         ArtistID = Convert.ToInt32(Session["ArtistID"]);
@@ -48,13 +52,13 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
 
 
 
-        
-            lstArtistAlbum.DataSource = DB.ExecuteDataTable("sproc_tblArtistAlbum_FindArtistAlbums");
 
-            lstArtistAlbum.DataValueField = "AlbumID";
-            lstArtistAlbum.DataTextField = "AlbumDisplay";
-            lstArtistAlbum.DataBind();
-        
+        lstArtistAlbum.DataSource = DB.ExecuteDataTable("sproc_tblArtistAlbum_FindArtistAlbums");
+
+        lstArtistAlbum.DataValueField = "AlbumID";
+        lstArtistAlbum.DataTextField = "AlbumDisplay";
+        lstArtistAlbum.DataBind();
+
 
 
     }
@@ -103,5 +107,20 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
     protected void lstArtistAlbum_SelectedIndexChanged(object sender, EventArgs e)
     {
 
+    }
+
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        //Second layer of security to make sure only logged in staff can add
+        if (Session["IsStaff"] != null && (bool)Session["IsStaff"] == true)
+        {
+            Session["ArtistID"] = -1;
+            Response.Redirect("StockArtistDataEntry.aspx");
+        }
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StockArtistDataEntry.aspx");
     }
 }
