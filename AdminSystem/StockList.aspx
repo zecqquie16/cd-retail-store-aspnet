@@ -20,9 +20,9 @@
         
         <asp:ListBox ID="lstAlbumList" runat="server"  BorderColor="#444" BorderStyle="Solid" BorderWidth="1px" style=" border-radius: 6px; padding: 6px; z-index: 1; left: 264px; top: 346px; position: absolute; height: 342px; width: 768px; margin-top: 0px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged" BackColor="#00051F" ForeColor="White" Rows="6" Width="300px"></asp:ListBox>
         
-        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 389px; top: 742px; position: absolute; height: 37px; width: 87px" Text="Add" OnClick="btnAdd_Click" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" />
+        <asp:Button ID="btnAdd" runat="server" style="z-index: 1; left: 389px; top: 734px; position: absolute; height: 37px; width: 87px" Text="Add" OnClick="btnAdd_Click" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" Visible="False" />
         
-        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 283px; top: 741px; position: absolute; height: 37px; width: 87px; right: 1108px;" Text="Edit" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" />
+        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 285px; top: 734px; position: absolute; height: 37px; width: 87px; right: 1106px;" Text="Edit" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" Visible="False" />
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 1047px; top: 533px; position: absolute" ForeColor="White"></asp:Label>
         
         <asp:Label ID="lblFilter" runat="server" style="z-index: 1; left: 1065px; top: 291px; position: absolute" Text="Search" ForeColor="White"></asp:Label>
@@ -34,7 +34,7 @@
         
         <asp:Image ID="imgLogo" runat="server" ImageUrl="~/OnTheRocksLogoV4.png" style="z-index: 1; left: 32px; top: 10px; position: absolute; height: 190px; width: 245px" BackColor="Black" BorderStyle="None" />
         
-        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 152px; top: 743px; position: absolute; height: 37px; width: 87px" Text="Delete" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" />
+        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 185px; top: 734px; position: absolute; height: 37px; width: 87px" Text="Delete" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" Visible="False" />
         
       
        
@@ -52,6 +52,10 @@
         
         <asp:Button ID="btnUserLog" runat="server" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" OnClick="btnUserLog_Click" style="z-index: 1; left: 954px; top: 44px; position: absolute; height: 37px; width: 80px; bottom: 495px" Text="Login" />
         <asp:Button ID="btnStaff" runat="server" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" OnClick="btnStaff_Click" style="z-index: 1; left: 774px; top: 43px; position: absolute; height: 38px; width: 139px" Text="Staff Gateway" />
+        
+      
+       
+        <asp:Label ID="lblStaffFunctionality" runat="server" ForeColor="White" style="z-index: 1; left: 22px; top: 742px; position: absolute" Text="Staff functionalities:" Visible="False"></asp:Label>
         
       
        

@@ -28,7 +28,7 @@ html, body, form
 <asp:Button ID="btnLogOut" runat="server" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" OnClick="btnLogOut_Click" style="z-index: 1; left: 446px; top: 99px; position: absolute; height: 54px" Text="Log Out" Visible="False" width="94px" />
     
      
-         <asp:Image ID="Image1" runat="server" style="z-index: 1; left: 206px; top: 253px; position: absolute; height: 255px; width: 340px" />
+         <asp:Image ID="ImageArtist" runat="server" style="z-index: 1; left: 206px; top: 253px; position: absolute; height: 255px; width: 340px" />
          <asp:Label ID="lblArtistName" runat="server" Font-Bold="True" Font-Italic="True" ForeColor="White" style="z-index: 1; left: 263px; top: 199px; position: absolute; height: 24px; width: 270px; margin-bottom: 1px"></asp:Label>
          <asp:Label ID="lblAbout" runat="server" Font-Size="X-Large" ForeColor="White" style="z-index: 1; left: 814px; top: 215px; position: absolute; width: 109px" Text="About"></asp:Label>
          <asp:Panel ID="pnlAbout" runat="server" style="z-index: 1; left: 774px; top: 257px; position: absolute; height: 299px; width: 680px; margin-top: 0px;" BorderColor="White" BorderStyle="Solid" ForeColor="White">
@@ -46,6 +46,11 @@ html, body, form
          <asp:Label ID="lblBiographyTitle" runat="server" Font-Size="Larger" ForeColor="White" style="z-index: 1; left: 79px; top: 534px; position: absolute; height: 62px; width: 329px" Text="More about "></asp:Label>
          <asp:Label ID="lblBiography" runat="server" Font-Size="Medium" ForeColor="White" style="z-index: 1; left: 77px; top: 587px; position: absolute; height: 234px; width: 493px"></asp:Label>
          <asp:Button ID="btnDisplay" runat="server" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" OnClick="btnDisplay_Click" style="z-index: 1; left: 1325px; top: 423px; position: absolute; height: 41px; width: 95px" Text="Display" />
+    
+     
+         <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" style="z-index: 1; left: 1300px; top: 599px; position: absolute; height: 48px; width: 113px" Text="Edit" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" Visible="False" />
+         <asp:Label ID="lblStaffFunctionalities" runat="server" ForeColor="White" style="z-index: 1; left: 893px; top: 612px; position: absolute" Text="Staff functionalities" Visible="False"></asp:Label>
+         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" style="z-index: 1; left: 1097px; top: 597px; position: absolute; height: 52px; width: 125px" Text="Add" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" Visible="False" />
     
      
      </form>

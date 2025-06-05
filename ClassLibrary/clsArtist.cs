@@ -12,6 +12,7 @@ namespace ClassLibrary
         private string mArtistGenre;
         private string mArtistNationality;
         private string mArtistBiography;
+        private string mArtistImage;
 
       
         public string ArtistName
@@ -84,7 +85,18 @@ namespace ClassLibrary
                 mArtistBiography = value;
             }
         }
-        
+        public string ArtistImage
+        {
+            get
+            {
+                return mArtistImage;
+            }
+            set
+            {
+                mArtistImage = value;
+            }
+        }
+
 
         public bool Find(int ArtistID)
         {
@@ -102,7 +114,7 @@ namespace ClassLibrary
                 mArtistGenre = Convert.ToString(DB.DataTable.Rows[0]["Genre"]);
                 mArtistName = Convert.ToString(DB.DataTable.Rows[0]["Name"]);
                 mArtistNationality = Convert.ToString(DB.DataTable.Rows[0]["Nationality"]);
-                
+                mArtistImage = Convert.ToString(DB.DataTable.Rows[0]["Image"]);
                 mArtistBiography = Convert.ToString(DB.DataTable.Rows[0]["Biography"]);
                 mArtistIsSolo = Convert.ToBoolean(DB.DataTable.Rows[0]["Solo"]);
                 return true;
@@ -116,8 +128,49 @@ namespace ClassLibrary
                 return false;
             }
         }
+        public string Valid(string artistName, string artistGenre, string artistBiography, string artistNationality, string artiistIsSolo, string artistImage)
+        {
+            
+            string Error = "";
+            if (artistName.Length == 0)
+            {
+                Error = Error + "The artist name may not be blank !/ ";
+            }
+            if (artistName.Length > 50)
+            {
+                Error = Error + "The artist name may not exceed 50 characters!/ ";
+            }
 
-       
+            if (artistGenre.Length < 3)
+            {
+                Error = Error + "The artist genre must contain at least 3 characters!/ ";
+            }
+            if (artistGenre.Length > 50)
+            {
+                Error = Error + "The artist genre cannot exceed 50 characters!/ ";
+            }
+            if (artistNationality.Length > 50)
+            {
+                Error = Error + "The artist nationality may not exceed 50 characters!/ ";
+            }
+            if (artistBiography.Length == 0)
+            {
+                Error = Error + "The artist biography may not be blank !/ ";
+            }
+            if (artistNationality.Length == 0)
+            {
+                Error = Error + "The artist nationality may not be blank !/ ";
+            }
+
+
+
+
+
         
+
+            return Error;
+        }
+
+
     }
 }

@@ -24,10 +24,9 @@ html, body, form
          <asp:Image ID="imgLogo" runat="server" ImageUrl="~/OnTheRocksLogoV4.png" style="z-index: 1; left: 76px; top: 35px; position: absolute; width: 217px; height: 107px" />
               <asp:Label ID="lblUser2" runat="server" ForeColor="White" style="z-index: 1; left: 310px; top: 43px; position: absolute; width: 366px"></asp:Label>
   <asp:Button ID="btnLogOut2" runat="server" BackColor="#48A388" BorderColor="#48A388" BorderStyle="Double" ForeColor="White" OnClick="btnLogOut_Click" style="z-index: 1; left: 446px; top: 99px; position: absolute; height: 54px" Text="Log Out" Visible="False" width="94px" />
-        </asp:Panel>
+       
       
-        <asp:Panel ID="pnlConfirmDelete" runat="server" style="z-index: 1; left: 446px; top: 207px; position: absolute; height: 185px; width: 693px" BorderColor="White" BorderStyle="Solid" ForeColor="White">
-        </asp:Panel>
+        
       
     </form>
 </body>

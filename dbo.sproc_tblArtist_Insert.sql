@@ -4,9 +4,10 @@
 	@Biography varchar(Max) ,
 	@Nationality varchar(50) ,
 	@Solo bit,
-	@LabelID int
+	
+	@Image varchar(255)
 	
 AS
-	INSERT INTO tblArtist (Name,Genre,Biography,Nationality,Solo,LabelID)
-	values (@Name,@Genre,@Biography,@Nationality,@Solo,@LabelID)
+	INSERT INTO tblArtist (Name,Genre,Biography,Nationality,Solo,Image)
+	values (@Name,@Genre,@Biography,@Nationality,@Solo,@Image)
 RETURN @@IDENTITY
