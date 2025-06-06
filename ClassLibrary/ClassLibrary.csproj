@@ -45,10 +45,11 @@
     <Compile Include="clsAlbumCollection.cs" />
     <Compile Include="clsArtist.cs" />
     <Compile Include="clsArtistCollection.cs" />
-    <Compile Include="clscostumer.cs" />
+    <Compile Include="clscustomer.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsLabel.cs" />
     <Compile Include="clsStaff.cs" />
+    <Compile Include="CustomerCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

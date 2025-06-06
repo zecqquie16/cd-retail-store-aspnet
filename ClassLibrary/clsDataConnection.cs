@@ -82,7 +82,7 @@ public class clsDataConnection
                         {
                             //add the file to the list of db names
                             DBNames.Add(dirConts[Counter]);
-                        }
+                        } 
                         //inc the counter
                         Counter++;
                     }
